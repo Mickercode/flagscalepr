@@ -1,0 +1,288 @@
+import { ArrowRight } from 'lucide-react'
+import SiteHeader from '../components/SiteHeader'
+import SiteFooter from '../components/SiteFooter'
+import SectionLabel from '../components/SectionLabel'
+import LinkArrow from '../components/LinkArrow'
+import { navigate } from '../utils/navigation'
+
+const work = [
+  {
+    name: 'SEVEN30 REAL ESTATE',
+    tag: 'Real Estate • Nigeria',
+    services: 'Media Relations • Event Communications',
+    copy: 'Strengthening trust around Petra Ville Phase I through a landmark land allocation event and quality-led property storytelling.',
+    image: 'https://cdn.guardian.ng/wp-content/uploads/2024/10/Se.jpg',
+    link: 'https://guardian.ng/joe-komolafe/seven30-strengthens-commitment-to-quality-with-land-allocation-at-petra-ville-phase-i/',
+  },
+  {
+    name: 'PETRA VILLE PHASE I',
+    tag: 'Property • Abeokuta',
+    services: 'Launch PR • Stakeholder Communications',
+    copy: 'Introducing Seven30 Real Estate Limited’s Petra Ville Phase I through a momentous land allocation event, helping prospective owners see the value and promise of the development.',
+    image: 'https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/Screenshot_20241027-214310.jpg',
+    link: 'https://www.thisdaylive.com/index.php/2024/10/28/seven30-real-estate-limited-unveils-petra-ville-phase-i-with-momentous-land-allocation-event/',
+  },
+]
+
+const capabilities = [
+  'Media Relations',
+  'Content Creation',
+  'Social Media Management',
+  'Crisis Management',
+  'Event Management',
+  'Influencer Marketing',
+  'Brand Building',
+  'Corporate Communications',
+]
+
+export default function HomePage() {
+  return (
+    <div className="site">
+      <SiteHeader active="work" />
+      <main id="top">
+        <section className="hero container">
+          <div className="hero-copy">
+            <SectionLabel>Public Relations for African SMEs</SectionLabel>
+            <h1>Empower your brand’s voice. <em>Shine and thrive.</em></h1>
+            <p className="lead">
+              Data-driven, people-centric PR solutions helping African SMEs turn visibility into revenue, partnerships, and long-term contracts across Anglophone and Francophone Africa.
+            </p>
+            <div className="hero-buttons">
+              <a className="button dark" href="#work">Explore Our Work <ArrowRight size={16} /></a>
+              <a
+                className="play-button"
+                href="/contact"
+                onClick={(e) => {
+                  e.preventDefault()
+                  navigate('/contact')
+                }}
+              >
+                <span><ArrowRight size={13} /></span> Start a Conversation
+              </a>
+            </div>
+            <div className="stats">
+              <div><strong>8</strong><span>Core Services</span></div>
+              <div><strong>2</strong><span>Verified Placements</span></div>
+              <div><strong>1</strong><span>Owned Media Studio</span></div>
+            </div>
+          </div>
+          <div className="hero-image">
+            <img
+              src="https://lh3.googleusercontent.com/aida/AEtjO1VJsfwiB0PQp6g5W9a7Jy915h5juGkW5PR5596dfc9NYLJ53hNHYd2DYWzL4nndJCHzvklTzEsAd3Mh5D030kFxtf11QPH_Ims9l8-A3NGEmYbRbPgYSJfjuqz2qoT-z77OWl3djiRMbFg8D9rkdbsjw5NqeIcFQ4sb9rjoo8mn1WdvBXQirAUVKa20Nfl4MsWlDdZ-q6ZzkVs3O9LH4YBBdOxNHA6jwiJmqHpZHsdCxArkdvkgaio4FtRM"
+              alt="African communications professional"
+            />
+            <div className="dossier"><b>People · Passion</b><span>Professionalism</span></div>
+            <div className="image-caption">
+              <span><b>Serving</b><strong>Anglophone / Francophone Africa</strong></span>
+              <small>FSPR · 2025</small>
+            </div>
+          </div>
+        </section>
+
+        <section className="brand-strip">
+          <div className="container strip-inner">
+            <SectionLabel>Building with African Businesses</SectionLabel>
+            <div className="brand-types">
+              <span>Startups</span><i>•</i><span>SMEs</span><i>•</i><span>Corporate Brands</span><i>•</i><span>Founders</span><i>•</i><span>Institutions</span>
+            </div>
+          </div>
+        </section>
+
+        <section className="client-strip">
+          <div className="container client-strip-inner">
+            <SectionLabel>Clients We’ve Worked With</SectionLabel>
+            <div>
+              <a href="https://guardian.ng/joe-komolafe/seven30-strengthens-commitment-to-quality-with-land-allocation-at-petra-ville-phase-i/" target="_blank" rel="noreferrer">
+                Seven30 Real Estate Limited
+              </a>
+              <i>•</i>
+              <a href="https://www.thisdaylive.com/index.php/2024/10/28/seven30-real-estate-limited-unveils-petra-ville-phase-i-with-momentous-land-allocation-event/" target="_blank" rel="noreferrer">
+                Petra Ville Phase I
+              </a>
+              <i>•</i>
+              <span>2MoroTrip</span>
+              <i>•</i>
+              <span>AISEC</span>
+              <i>•</i>
+              <span>Gluke</span>
+              <i>•</i>
+              <span>Higher Education with Liberty and Progress</span>
+            </div>
+          </div>
+        </section>
+
+        <section className="thesis container">
+          <div className="number-label">01 / The Thesis</div>
+          <div>
+            <h2>People first. <br /><em>Business success follows.</em></h2>
+            <p className="lead">
+              We take time to understand your business, values, goals, and target audience, then build communications that earn trust and create opportunity.
+            </p>
+          </div>
+        </section>
+
+        <section className="work container" id="work">
+          <div className="section-heading">
+            <div>
+              <SectionLabel>02 / Curated Portfolio</SectionLabel>
+              <h2>Selected Work</h2>
+            </div>
+            <p>Dispatches across Lagos, London, Nairobi & New York</p>
+          </div>
+          <div className="work-grid">
+            {work.map((item, i) => (
+              <article className={`work-card work-${i}`} key={item.name}>
+                <div className="work-photo">
+                  <img src={item.image} alt={item.name} />
+                  <span>{item.tag}</span>
+                </div>
+                <div className="work-body">
+                  <SectionLabel>{item.services}</SectionLabel>
+                  <h3>{item.name}</h3>
+                  <p>{item.copy}</p>
+                  <LinkArrow href={item.link}>View Case Study</LinkArrow>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="capabilities" id="capabilities">
+          <div className="container capabilities-inner">
+            <div>
+              <SectionLabel>03 / Capabilities</SectionLabel>
+              <h2>We build<br /><em>reputation.</em></h2>
+            </div>
+            <div className="capability-content">
+              <div className="capability-tags">
+                {capabilities.map((item, i) => (
+                  <span className={i === 1 ? 'selected' : i === 4 ? 'accent' : ''} key={item}>
+                    {item}
+                  </span>
+                ))}
+              </div>
+              <LinkArrow href="/services">View Services</LinkArrow>
+            </div>
+          </div>
+        </section>
+
+        <section className="mandate">
+          <div className="container mandate-inner">
+            <div>
+              <SectionLabel>04 / Pan-African Mandate</SectionLabel>
+              <h2>Africa is our market.</h2>
+              <p>
+                From Lagos to Accra, Nairobi to Johannesburg, Flagscale helps ambitious businesses communicate across markets, cultures and communities. Serving Anglophone & Francophone Africa.
+              </p>
+            </div>
+            <div className="coverage">
+              <small>Primary Regional Coverage</small>
+              {[
+                ['Nigeria', 'West Hub • Lagos'],
+                ['Ghana', 'Accra Node'],
+                ['Kenya', 'East Hub • Nairobi'],
+                ['South Africa', 'Johannesburg • Cape Town'],
+                ['Francophone Africa', 'Abidjan • Dakar • Douala'],
+              ].map(([a, b]) => (
+                <div key={a}>
+                  <strong>{a}</strong>
+                  <span>{b}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="approach container" id="about">
+          <div className="section-heading">
+            <div>
+              <SectionLabel>05 / Philosophy</SectionLabel>
+              <h2>People. Passion. Professionalism.</h2>
+            </div>
+          </div>
+          <div className="pillars">
+            {[
+              ['01', 'People', 'We understand the people behind every market, message and relationship. Authentic connection precedes impactful conversion.', 'Cultural Intelligence'],
+              ['02', 'Passion', 'We find the stories worth telling and make people care about them. We treat African enterprise with the global narrative reverence it commands.', 'Narrative Mastery'],
+              ['03', 'Professionalism', 'We combine strategic thinking, strong relationships and disciplined execution. Rigor in governance, diplomacy in corporate positioning.', 'Strategic Rigor'],
+            ].map(([n, t, copy, foot]) => (
+              <article key={n}>
+                <strong className="pillar-number">{n}</strong>
+                <h3>{t}</h3>
+                <p>{copy}</p>
+                <small>{foot}</small>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="journal" id="journal">
+          <div className="container">
+            <div className="section-heading">
+              <div>
+                <SectionLabel>06 / Editorial Dispatch</SectionLabel>
+                <h2>The Flagscale Journal</h2>
+              </div>
+              <p className="journal-intro">Ideas shaping business, communication and culture across Africa.</p>
+            </div>
+            <div className="journal-grid">
+              {[
+                ['The Journal', '08 Min Read', 'Why African businesses need to think beyond visibility', 'Read Story'],
+                ['The Podcast', 'Episode 24', 'Conversations with the people building Africa', 'Listen Now'],
+                ['Insights', 'Quarterly Brief', 'The changing relationship between brands, media and influence', 'Read Insight'],
+              ].map(([tag, time, title, action], i) => (
+                <article key={title}>
+                  <div>
+                    <div className="journal-meta">
+                      <b className={i === 1 ? 'gold' : ''}>{tag}</b>
+                      <span>{time}</span>
+                    </div>
+                    <h3>{title}</h3>
+                    <p>
+                      {i === 0
+                        ? 'Moving past vanity metrics toward institutional durability and real regulatory authority in expanding consumer economies.'
+                        : i === 1
+                        ? 'Unfiltered dialogues with unicorn founders, sovereign fund managers, and cultural curators reshaping continental infrastructure.'
+                        : 'How decentralized media houses and creator economies are challenging traditional legacy public relations across West Africa.'}
+                    </p>
+                  </div>
+                  <LinkArrow href="/journal">{action}</LinkArrow>
+                </article>
+              ))}
+            </div>
+            <div className="studio">
+              <div>
+                <SectionLabel>Studio Production</SectionLabel>
+                <h3>Flagscale Studio — Victoria Island</h3>
+                <p>
+                  A dedicated production space for podcasts, broadcast interviews, executive thought leadership, and high-fidelity brand storytelling in the heart of Lagos.
+                </p>
+              </div>
+              <a className="button gold-button" href="mailto:contact@flagscalepr.com">
+                Book Studio Session <ArrowRight size={16} />
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="contact container" id="contact">
+          <SectionLabel>07 / Call to Authority</SectionLabel>
+          <h2>Be seen.<br /><em>Be trusted.</em><br />Be remembered.</h2>
+          <p className="lead">Flagscale PR — Public Relations & Strategic Communications</p>
+          <small>Serving Anglophone & Francophone Africa</small>
+          <a
+            className="button dark"
+            href="/contact"
+            onClick={(e) => {
+              e.preventDefault()
+              navigate('/contact')
+            }}
+          >
+            Start a Conversation <ArrowRight size={16} />
+          </a>
+        </section>
+      </main>
+      <SiteFooter />
+    </div>
+  )
+}
