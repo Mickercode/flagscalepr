@@ -3,6 +3,7 @@ import SiteHeader from '../components/SiteHeader'
 import SiteFooter from '../components/SiteFooter'
 import SectionLabel from '../components/SectionLabel'
 import LinkArrow from '../components/LinkArrow'
+import SmartImage from '../components/SmartImage'
 import { navigate } from '../utils/navigation'
 
 const work = [
@@ -39,8 +40,8 @@ export default function HomePage() {
   return (
     <div className="site">
       <SiteHeader active="work" />
-      <main id="top">
-        <section className="hero container">
+      <main id="main" tabIndex={-1}>
+        <section className="hero container" id="top">
           <div className="hero-copy">
             <SectionLabel>Public Relations for African SMEs</SectionLabel>
             <h1>Empower your brand’s voice. <em>Shine and thrive.</em></h1>
@@ -67,9 +68,12 @@ export default function HomePage() {
             </div>
           </div>
           <div className="hero-image">
-            <img
-              src="https://lh3.googleusercontent.com/aida/AEtjO1VJsfwiB0PQp6g5W9a7Jy915h5juGkW5PR5596dfc9NYLJ53hNHYd2DYWzL4nndJCHzvklTzEsAd3Mh5D030kFxtf11QPH_Ims9l8-A3NGEmYbRbPgYSJfjuqz2qoT-z77OWl3djiRMbFg8D9rkdbsjw5NqeIcFQ4sb9rjoo8mn1WdvBXQirAUVKa20Nfl4MsWlDdZ-q6ZzkVs3O9LH4YBBdOxNHA6jwiJmqHpZHsdCxArkdvkgaio4FtRM"
-              alt="African communications professional"
+            <SmartImage
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmC70-u_4xNKZAYXi-2LXlLrbX2hUgl3eFxDaaNjnBEv7wMKV-3hDDi57tmG-8Vj5UD--H5A5SFQItnB5Rrb3WsxkIUIsg47TOyiPXYgvqFo3Mhsy7oNIRf-JWjL3eN0qn_uLL3m-OT1Qfwm86HHOEil3PeiLiXUPlwczxZTnPgOAXpcSQTr9dCGD7F9SBCKCFQ3sPUim-RzeKlvaYS-nFkUw6l_CkSHNA6bGtp7wBXJMoi5a6Fntz"
+              alt="Flagscale PR strategist at work in the Lagos studio"
+              width={900}
+              height={1200}
+              priority
             />
             <div className="dossier"><b>People · Passion</b><span>Professionalism</span></div>
             <div className="image-caption">
@@ -133,7 +137,7 @@ export default function HomePage() {
             {work.map((item, i) => (
               <article className={`work-card work-${i}`} key={item.name}>
                 <div className="work-photo">
-                  <img src={item.image} alt={item.name} />
+                  <SmartImage src={item.image} alt={item.name} width={1200} height={900} />
                   <span>{item.tag}</span>
                 </div>
                 <div className="work-body">

@@ -48,7 +48,7 @@ export default function SiteFooter() {
         </div>
       </div>
       <div className="container footer-bottom">
-        <span>© 2026 Flagscale PR. All rights reserved.</span>
+        <span>© {new Date().getFullYear()} Flagscale PR. All rights reserved.</span>
         <span>
           <a href="#privacy">Privacy Policy</a> · <a href="#terms">Terms of Use</a>
         </span>

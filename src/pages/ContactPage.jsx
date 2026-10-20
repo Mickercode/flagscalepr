@@ -1,13 +1,35 @@
-import { useState } from 'react'
-import { ArrowRight } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { ArrowRight, ArrowUpRight, Check, Circle, FileText, MapPin, Minus, Plus } from 'lucide-react'
 import SiteHeader from '../components/SiteHeader'
 import SiteFooter from '../components/SiteFooter'
 import SectionLabel from '../components/SectionLabel'
+
+
+const BUREAU_CLOCKS = [
+  { city: 'LAGOS', zone: 'Africa/Lagos', label: 'WAT' },
+  { city: 'LONDON', zone: 'Europe/London', label: 'GMT' },
+  { city: 'NAIROBI', zone: 'Africa/Nairobi', label: 'EAT' },
+]
+
+const formatZone = (date, timeZone) =>
+  new Intl.DateTimeFormat('en-GB', {
+    timeZone,
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  }).format(date)
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
   const [tags, setTags] = useState([])
   const [faq, setFaq] = useState(null)
+  const [now, setNow] = useState(() => new Date())
+
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 30000)
+    return () => clearInterval(id)
+  }, [])
+
   const tagOptions = [
     'Immediate M&A Announcement',
     'Capital Raise Disclosure',
@@ -32,11 +54,20 @@ export default function ContactPage() {
   return (
     <div className="site contact-page">
       <SiteHeader active="contact" />
-      <main className="contact-main">
+      <main className="contact-main" id="main" tabIndex={-1}>
         <div className="status-ticker">
-          <span>● &nbsp; DISPATCH STATUS: ACTIVE DESKS OPEN</span>
-          <span className="ticker-cities">LAGOS 14:20 WAT &nbsp; • &nbsp; LONDON 13:20 GMT &nbsp; • &nbsp; NAIROBI 16:20 EAT</span>
-          <b>REF: FGS-INTEL-2025</b>
+          <span>
+            <Circle size={8} fill="currentColor" aria-hidden="true" /> &nbsp; DISPATCH STATUS: ACTIVE DESKS OPEN
+          </span>
+          <span className="ticker-cities">
+            {BUREAU_CLOCKS.map(({ city, zone, label }, i) => (
+              <span key={city}>
+                {i > 0 && <span className="ticker-sep"> &nbsp; • &nbsp; </span>}
+                {city} {formatZone(now, zone)} {label}
+              </span>
+            ))}
+          </span>
+          <b>REF: FGS-INTEL-{now.getFullYear()}</b>
         </div>
 
         <section className="contact-hero container">
@@ -74,12 +105,16 @@ export default function ContactPage() {
                 <small>STAGE 01 — CLIENT INITIATION</small>
                 <h2>Confidential Mandate Briefing</h2>
               </div>
-              <b>⌑</b>
+              <b aria-hidden="true">
+                <FileText size={18} />
+              </b>
             </div>
 
             {submitted ? (
-              <div className="form-success">
-                <strong>✓ &nbsp; Mandate dossier received.</strong>
+              <div className="form-success" role="status" aria-live="polite">
+                <strong>
+                  <Check size={16} aria-hidden="true" /> &nbsp; Mandate dossier received.
+                </strong>
                 <p>An engagement partner has been routed. Expect dispatch within 4 hours.</p>
                 <button className="button dark" onClick={() => setSubmitted(false)}>
                   Submit Another Briefing
@@ -92,30 +127,61 @@ export default function ContactPage() {
                   setSubmitted(true)
                 }}
               >
+                <p className="required-note">
+                  Fields marked <b aria-hidden="true">*</b> are required.
+                </p>
                 <div className="form-row">
-                  <label>
-                    Full Name & Title *
-                    <input required placeholder="e.g. Dr. Amina Bello, Chief Strategy Officer" />
+                  <label htmlFor="c-name">
+                    Full Name & Title <b aria-hidden="true">*</b>
+                    <input
+                      id="c-name"
+                      name="name"
+                      required
+                      autoComplete="name"
+                      placeholder="e.g. Dr. Amina Bello, Chief Strategy Officer"
+                    />
                   </label>
-                  <label>
-                    Corporate / Institutional Organization *
-                    <input required placeholder="e.g. Horizon Energy Group" />
+                  <label htmlFor="c-org">
+                    Corporate / Institutional Organization <b aria-hidden="true">*</b>
+                    <input
+                      id="c-org"
+                      name="organization"
+                      required
+                      autoComplete="organization"
+                      placeholder="e.g. Horizon Energy Group"
+                    />
                   </label>
                 </div>
                 <div className="form-row">
-                  <label>
-                    Corporate Email *
-                    <input required type="email" placeholder="amina@horizonenergy.com" />
+                  <label htmlFor="c-email">
+                    Corporate Email <b aria-hidden="true">*</b>
+                    <input
+                      id="c-email"
+                      name="email"
+                      required
+                      type="email"
+                      autoComplete="email"
+                      inputMode="email"
+                      placeholder="amina@horizonenergy.com"
+                    />
                   </label>
-                  <label>
-                    Direct Line (with Prefix) *
-                    <input required type="tel" placeholder="+234 802 000 0000" />
+                  <label htmlFor="c-tel">
+                    Direct Line (with Prefix) <b aria-hidden="true">*</b>
+                    <input
+                      id="c-tel"
+                      name="tel"
+                      required
+                      type="tel"
+                      autoComplete="tel"
+                      inputMode="tel"
+                      placeholder="+234 802 000 0000"
+                    />
                   </label>
                 </div>
                 <div className="form-row">
-                  <label>
-                    Primary Objective *
-                    <select required defaultValue="">
+                  <label htmlFor="c-objective">
+                    Primary Objective <b aria-hidden="true">*</b>
+                    <select id="c-objective" name="objective" required defaultValue="">
                       <option value="" disabled>Select Engagement Type</option>
                       <option>Strategic PR & Communications</option>
                       <option>Crisis Communications & Mitigation</option>
@@ -124,9 +190,9 @@ export default function ContactPage() {
                       <option>Studio Production Booking</option>
                     </select>
                   </label>
-                  <label>
-                    Scope of Operations *
-                    <select required defaultValue="">
+                  <label htmlFor="c-scope">
+                    Scope of Operations <b aria-hidden="true">*</b>
+                    <select id="c-scope" name="scope" required defaultValue="">
                       <option value="" disabled>Select Territory Focus</option>
                       <option>Nigeria</option>
                       <option>Pan-African / Multi-Country</option>
@@ -142,6 +208,7 @@ export default function ContactPage() {
                       <button
                         type="button"
                         className={tags.includes(tag) ? 'tag selected' : 'tag'}
+                        aria-pressed={tags.includes(tag)}
                         key={tag}
                         onClick={() =>
                           setTags(
@@ -156,9 +223,11 @@ export default function ContactPage() {
                     ))}
                   </div>
                 </fieldset>
-                <label>
-                  Brief Narrative Summary & Proposed Timeline *
+                <label htmlFor="c-brief">
+                  Brief Narrative Summary & Proposed Timeline <b aria-hidden="true">*</b>
                   <textarea
+                    id="c-brief"
+                    name="brief"
                     required
                     rows="5"
                     placeholder="Outline key milestones, existing reputational challenges, desired media targets, and mandatory launch timelines..."
@@ -168,7 +237,8 @@ export default function ContactPage() {
                   Submit Mandate Briefing <ArrowRight size={16} />
                 </button>
                 <small className="form-note">
-                  ✓ &nbsp; All submissions are governed by strict non-disclosure and attorney-grade confidentiality protocols.
+                  <Check size={13} aria-hidden="true" /> &nbsp; All submissions are governed by strict
+                  non-disclosure and attorney-grade confidentiality protocols.
                 </small>
               </form>
             )}
@@ -181,7 +251,9 @@ export default function ContactPage() {
               <h3>Flagscale Lagos (Bureau Principal)</h3>
               <p>Plot 14, Akin Adesola Street, Victoria Island, Lagos, Nigeria</p>
               <div className="bureau-map">
-                <span>⌖ &nbsp; Victoria Island Diplomatic District</span>
+                <span>
+                  <MapPin size={14} aria-hidden="true" /> &nbsp; Victoria Island Diplomatic District
+                </span>
               </div>
               <div className="contact-pairs">
                 <div>
@@ -211,7 +283,8 @@ export default function ContactPage() {
                     <small>{label}</small>
                   </div>
                   <p>{address}</p>
-                  <a href={`mailto:${email}`}>{email} ↗</a>
+                  <a href={`mailto:${email}`}>{email}
+                    <ArrowUpRight size={13} aria-hidden="true" /></a>
                 </div>
               ))}
             </div>
@@ -242,7 +315,7 @@ export default function ContactPage() {
             </p>
           </div>
           <a className="button gold-button" href="mailto:advisory@flagscalepr.com">
-            Schedule Intro Call →
+            Schedule Intro Call <ArrowRight size={16} aria-hidden="true" />
           </a>
         </section>
 
@@ -257,12 +330,24 @@ export default function ContactPage() {
           <div className="faq-list">
             {faqs.map(([question, answer], i) => (
               <article key={question}>
-                <button onClick={() => setFaq(faq === i ? null : i)}>
+                <button
+                  type="button"
+                  aria-expanded={faq === i}
+                  aria-controls={`faq-panel-${i}`}
+                  id={`faq-trigger-${i}`}
+                  onClick={() => setFaq(faq === i ? null : i)}
+                >
                   <strong>0{i + 1}</strong>
                   <span>{question}</span>
-                  <b>{faq === i ? '−' : '+'}</b>
+                  <b aria-hidden="true">
+                    {faq === i ? <Minus size={16} /> : <Plus size={16} />}
+                  </b>
                 </button>
-                {faq === i && <p>{answer}</p>}
+                {faq === i && (
+                  <p id={`faq-panel-${i}`} role="region" aria-labelledby={`faq-trigger-${i}`}>
+                    {answer}
+                  </p>
+                )}
               </article>
             ))}
           </div>

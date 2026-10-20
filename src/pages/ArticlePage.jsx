@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import { ArrowLeft, ArrowRight, Check, Copy, Share2 } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Check, Copy, Diamond, Share2 } from 'lucide-react'
 import SiteHeader from '../components/SiteHeader'
 import SiteFooter from '../components/SiteFooter'
 import SectionLabel from '../components/SectionLabel'
 import { navigate } from '../utils/navigation'
+import SmartImage from '../components/SmartImage'
 import { articles } from '../data/articles'
 
 export default function ArticlePage({ slug }) {
@@ -15,7 +16,7 @@ export default function ArticlePage({ slug }) {
     return (
       <div className="site article-page">
         <SiteHeader active="journal" />
-        <main className="article-main container not-found-container">
+        <main className="article-main container not-found-container" id="main" tabIndex={-1}>
           <SectionLabel>THE FLAGSCALE JOURNAL</SectionLabel>
           <h1>Article Not Found</h1>
           <p className="lead">The dispatch you are seeking does not exist or may have been archived.</p>
@@ -54,7 +55,7 @@ export default function ArticlePage({ slug }) {
     <div className="site article-page">
       <SiteHeader active="journal" />
 
-      <main className="article-main">
+      <main className="article-main" id="main" tabIndex={-1}>
         {/* TOP BREADCRUMB */}
         <div className="article-breadcrumb container">
           <a
@@ -93,7 +94,7 @@ export default function ArticlePage({ slug }) {
         {/* FEATURE IMAGE */}
         <section className="article-featured-image-section container">
           <div className="article-image-frame">
-            <img src={article.image} alt={article.title} />
+            <SmartImage src={article.image} alt="" width={1600} height={900} priority />
             {article.caption && (
               <figcaption className="article-image-caption">
                 <span>{article.caption}</span>
@@ -127,7 +128,9 @@ export default function ArticlePage({ slug }) {
               <div className="article-takeaway-box">
                 <div className="takeaway-header">
                   <span className="takeaway-badge">THE TAKEAWAY</span>
-                  <span className="takeaway-dot">◈</span>
+                  <span className="takeaway-dot">
+                    <Diamond size={14} aria-hidden="true" />
+                  </span>
                 </div>
                 <p className="takeaway-text">{article.takeaway}</p>
               </div>
@@ -165,7 +168,12 @@ export default function ArticlePage({ slug }) {
                     X
                   </a>
                   <span className="share-sep">·</span>
-                  <button className="copy-link-btn" onClick={handleCopyLink} type="button">
+                  <button
+                    className="copy-link-btn"
+                    onClick={handleCopyLink}
+                    type="button"
+                    aria-label={copied ? 'Link copied to clipboard' : 'Copy link to this story'}
+                  >
                     {copied ? (
                       <>
                         <Check size={13} color="var(--ochre)" /> Copied Link
@@ -256,13 +264,19 @@ export default function ArticlePage({ slug }) {
           <div className="more-grid">
             {relatedArticles.map((rel) => (
               <article className="more-card" key={rel.id}>
-                <div
+                <a
                   className="more-image-wrap"
-                  onClick={() => navigate(`/journal/${rel.slug}`)}
+                  href={`/journal/${rel.slug}`}
+                  tabIndex={-1}
+                  aria-hidden="true"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    navigate(`/journal/${rel.slug}`)
+                  }}
                 >
-                  <img src={rel.image} alt={rel.title} />
+                  <SmartImage src={rel.image} alt="" width={900} height={600} />
                   <span className="more-category">{rel.category}</span>
-                </div>
+                </a>
                 <div className="more-body">
                   <small className="more-meta">{rel.readTime}</small>
                   <h3>

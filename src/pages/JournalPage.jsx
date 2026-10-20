@@ -1,9 +1,10 @@
 import { useState } from 'react'
-import { ArrowRight, Check } from 'lucide-react'
+import { ArrowRight, Check, Diamond } from 'lucide-react'
 import SiteHeader from '../components/SiteHeader'
 import SiteFooter from '../components/SiteFooter'
 import SectionLabel from '../components/SectionLabel'
 import { navigate } from '../utils/navigation'
+import SmartImage from '../components/SmartImage'
 import { articles, categories, editorialThemes } from '../data/articles'
 
 export default function JournalPage() {
@@ -27,7 +28,7 @@ export default function JournalPage() {
     <div className="site journal-page">
       <SiteHeader active="journal" />
 
-      <main className="journal-main">
+      <main className="journal-main" id="main" tabIndex={-1}>
         {/* HERO SECTION */}
         <section className="journal-hero container">
           <div className="journal-hero-top">
@@ -51,14 +52,16 @@ export default function JournalPage() {
               {categories.map((cat) => (
                 <button
                   key={cat}
+                  type="button"
                   className={`category-tab ${activeCategory === cat ? 'active' : ''}`}
+                  aria-pressed={activeCategory === cat}
                   onClick={() => setActiveCategory(cat)}
                 >
                   {cat}
                 </button>
               ))}
             </div>
-            <span className="category-counter">
+            <span className="category-counter" role="status" aria-live="polite">
               Showing {latestArticles.length} {latestArticles.length === 1 ? 'Story' : 'Stories'}
             </span>
           </div>
@@ -68,10 +71,18 @@ export default function JournalPage() {
         {featuredArticle && activeCategory === 'All Stories' && (
           <section className="featured-story-section container">
             <article className="featured-card">
-              <div className="featured-media" onClick={() => navigate(`/journal/${featuredArticle.slug}`)}>
-                <img src={featuredArticle.image} alt={featuredArticle.title} />
+              <a
+                className="featured-media"
+                href={`/journal/${featuredArticle.slug}`}
+                aria-label={`Read the featured story: ${featuredArticle.title}`}
+                onClick={(e) => {
+                  e.preventDefault()
+                  navigate(`/journal/${featuredArticle.slug}`)
+                }}
+              >
+                <SmartImage src={featuredArticle.image} alt="" width={1280} height={800} priority />
                 <span className="featured-badge">FEATURED</span>
-              </div>
+              </a>
 
               <div className="featured-body">
                 <div className="featured-meta">
@@ -115,13 +126,19 @@ export default function JournalPage() {
           <div className="stories-grid">
             {latestArticles.map((article) => (
               <article className="story-card" key={article.id}>
-                <div
+                <a
                   className="story-image-wrap"
-                  onClick={() => navigate(`/journal/${article.slug}`)}
+                  href={`/journal/${article.slug}`}
+                  tabIndex={-1}
+                  aria-hidden="true"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    navigate(`/journal/${article.slug}`)
+                  }}
                 >
-                  <img src={article.image} alt={article.title} />
+                  <SmartImage src={article.image} alt="" width={900} height={600} />
                   <span className="story-category-tag">{article.category}</span>
-                </div>
+                </a>
 
                 <div className="story-card-body">
                   <div className="story-meta">
@@ -176,7 +193,9 @@ export default function JournalPage() {
                 <div className="theme-card" key={item.theme}>
                   <div className="theme-top">
                     <span className="theme-number">{item.number}</span>
-                    <span className="theme-dot">◈</span>
+                    <span className="theme-dot">
+                      <Diamond size={14} aria-hidden="true" />
+                    </span>
                   </div>
                   <h3>{item.theme}</h3>
                   <p>{item.copy}</p>
@@ -222,7 +241,7 @@ export default function JournalPage() {
 
             <div className="subscription-form-wrap">
               {subscribed ? (
-                <div className="subscribed-success">
+                <div className="subscribed-success" role="status" aria-live="polite">
                   <Check size={20} color="var(--ochre)" />
                   <div>
                     <strong>You are subscribed.</strong>

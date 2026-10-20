@@ -1,7 +1,8 @@
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Diamond } from 'lucide-react'
 import SiteHeader from '../components/SiteHeader'
 import SiteFooter from '../components/SiteFooter'
 import SectionLabel from '../components/SectionLabel'
+import SmartImage from '../components/SmartImage'
 import { navigate } from '../utils/navigation'
 
 export default function AboutPage() {
@@ -9,7 +10,7 @@ export default function AboutPage() {
     <div className="site about-page">
       <SiteHeader active="about" />
 
-      <main className="about-main">
+      <main className="about-main" id="main" tabIndex={-1}>
         {/* HERO SECTION */}
         <section className="about-hero container">
           <div className="about-hero-top">
@@ -42,9 +43,12 @@ export default function AboutPage() {
 
             <div className="about-hero-visual">
               <div className="about-hero-image-wrap">
-                <img
+                <SmartImage
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmC70-u_4xNKZAYXi-2LXlLrbX2hUgl3eFxDaaNjnBEv7wMKV-3hDDi57tmG-8Vj5UD--H5A5SFQItnB5Rrb3WsxkIUIsg47TOyiPXYgvqFo3Mhsy7oNIRf-JWjL3eN0qn_uLL3m-OT1Qfwm86HHOEil3PeiLiXUPlwczxZTnPgOAXpcSQTr9dCGD7F9SBCKCFQ3sPUim-RzeKlvaYS-nFkUw6l_CkSHNA6bGtp7wBXJMoi5a6Fntz"
                   alt="Flagscale PR strategic communications"
+                  width={800}
+                  height={1000}
+                  priority
                 />
                 <div className="about-hero-badge">
                   <b>People · Passion</b>
@@ -234,7 +238,9 @@ export default function AboutPage() {
           </div>
 
           <div className="approach-adaptive-box">
-            <span className="adaptive-icon">◈</span>
+            <span className="adaptive-icon">
+              <Diamond size={16} aria-hidden="true" />
+            </span>
             <p>
               <strong>Every business is different.</strong> Our approach adapts to the challenge, rather than forcing every client into the same strategy.
             </p>
