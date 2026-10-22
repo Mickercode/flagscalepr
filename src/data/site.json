@@ -1,0 +1,88 @@
+{
+  "stats": [
+    {
+      "value": "8",
+      "label": "Core Services"
+    },
+    {
+      "value": "3",
+      "label": "Verified Placements"
+    },
+    {
+      "value": "1",
+      "label": "Owned Media Studio"
+    }
+  ],
+  "clients": [
+    {
+      "name": "Seven30 Real Estate Limited",
+      "link": "https://guardian.ng/joe-komolafe/seven30-strengthens-commitment-to-quality-with-land-allocation-at-petra-ville-phase-i/"
+    },
+    {
+      "name": "Petra Ville Phase I",
+      "link": "https://www.thisdaylive.com/index.php/2024/10/28/seven30-real-estate-limited-unveils-petra-ville-phase-i-with-momentous-land-allocation-event/"
+    },
+    {
+      "name": "Sákiyèsí",
+      "link": "https://businessday.ng/bd-weekender/article/sakiyesi-invites-nigerians-to-slow-down-and-pay-attention/"
+    },
+    {
+      "name": "2MoroTrip",
+      "link": ""
+    },
+    {
+      "name": "AIESEC",
+      "link": ""
+    },
+    {
+      "name": "Gluke",
+      "link": ""
+    },
+    {
+      "name": "Higher Education with Liberty and Progress",
+      "link": ""
+    }
+  ],
+  "capabilities": [
+    "Media Relations",
+    "Content Creation",
+    "Social Media Management",
+    "Crisis Management",
+    "Event Management",
+    "Influencer Marketing",
+    "Brand Building",
+    "Corporate Communications"
+  ],
+  "work": [
+    {
+      "name": "SEVEN30 REAL ESTATE",
+      "tag": "Real Estate • Nigeria",
+      "services": "Media Relations • Event Communications",
+      "copy": "Strengthening trust around Petra Ville Phase I through a landmark land allocation event and quality-led property storytelling.",
+      "image": "https://cdn.guardian.ng/wp-content/uploads/2024/10/Se.jpg",
+      "width": 1280,
+      "height": 800,
+      "link": "https://guardian.ng/joe-komolafe/seven30-strengthens-commitment-to-quality-with-land-allocation-at-petra-ville-phase-i/"
+    },
+    {
+      "name": "PETRA VILLE PHASE I",
+      "tag": "Property • Abeokuta",
+      "services": "Launch PR • Stakeholder Communications",
+      "copy": "Introducing Seven30 Real Estate Limited’s Petra Ville Phase I through a momentous land allocation event, helping prospective owners see the value and promise of the development.",
+      "image": "https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/Screenshot_20241027-214310.jpg",
+      "width": 1080,
+      "height": 755,
+      "link": "https://www.thisdaylive.com/index.php/2024/10/28/seven30-real-estate-limited-unveils-petra-ville-phase-i-with-momentous-land-allocation-event/"
+    },
+    {
+      "name": "SÁKIYÈSÍ",
+      "tag": "Publishing & Culture • Ile-Ife",
+      "services": "Media Relations • Launch Communications",
+      "copy": "Carrying Aderonke Lawal’s Yoruba-inspired colouring book beyond its launch at Obafemi Awolowo University and into the national business press, as a story about attention itself.",
+      "image": "/work/sakiyesi-launch.jpg",
+      "width": 1079,
+      "height": 632,
+      "link": "https://businessday.ng/bd-weekender/article/sakiyesi-invites-nigerians-to-slow-down-and-pay-attention/"
+    }
+  ]
+}

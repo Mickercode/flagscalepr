@@ -1,55 +1,14 @@
+import { Fragment } from 'react'
 import { ArrowRight } from 'lucide-react'
 import SiteHeader from '../components/SiteHeader'
 import SiteFooter from '../components/SiteFooter'
 import SectionLabel from '../components/SectionLabel'
 import LinkArrow from '../components/LinkArrow'
 import SmartImage from '../components/SmartImage'
-import sakiyesiLaunch from '../assets/sakiyesi-launch.jpg'
+import { work, clients, capabilities, stats } from '../data/site'
 import { navigate } from '../utils/navigation'
 
-const work = [
-  {
-    name: 'SEVEN30 REAL ESTATE',
-    tag: 'Real Estate • Nigeria',
-    services: 'Media Relations • Event Communications',
-    copy: 'Strengthening trust around Petra Ville Phase I through a landmark land allocation event and quality-led property storytelling.',
-    image: 'https://cdn.guardian.ng/wp-content/uploads/2024/10/Se.jpg',
-    width: 1280,
-    height: 800,
-    link: 'https://guardian.ng/joe-komolafe/seven30-strengthens-commitment-to-quality-with-land-allocation-at-petra-ville-phase-i/',
-  },
-  {
-    name: 'PETRA VILLE PHASE I',
-    tag: 'Property • Abeokuta',
-    services: 'Launch PR • Stakeholder Communications',
-    copy: 'Introducing Seven30 Real Estate Limited’s Petra Ville Phase I through a momentous land allocation event, helping prospective owners see the value and promise of the development.',
-    image: 'https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/Screenshot_20241027-214310.jpg',
-    width: 1080,
-    height: 755,
-    link: 'https://www.thisdaylive.com/index.php/2024/10/28/seven30-real-estate-limited-unveils-petra-ville-phase-i-with-momentous-land-allocation-event/',
-  },
-  {
-    name: 'SÁKIYÈSÍ',
-    tag: 'Publishing & Culture • Ile-Ife',
-    services: 'Media Relations • Launch Communications',
-    copy: 'Carrying Aderonke Lawal’s Yoruba-inspired colouring book beyond its launch at Obafemi Awolowo University and into the national business press, as a story about attention itself.',
-    image: sakiyesiLaunch,
-    width: 1079,
-    height: 632,
-    link: 'https://businessday.ng/bd-weekender/article/sakiyesi-invites-nigerians-to-slow-down-and-pay-attention/',
-  },
-]
 
-const capabilities = [
-  'Media Relations',
-  'Content Creation',
-  'Social Media Management',
-  'Crisis Management',
-  'Event Management',
-  'Influencer Marketing',
-  'Brand Building',
-  'Corporate Communications',
-]
 
 // The work grid runs on a 12-column track: cards alternate 7/5 then 5/7, so an
 // even count always fills its rows. A trailing odd card spans the full width
@@ -85,9 +44,12 @@ export default function HomePage() {
               </a>
             </div>
             <div className="stats">
-              <div><strong>8</strong><span>Core Services</span></div>
-              <div><strong>3</strong><span>Verified Placements</span></div>
-              <div><strong>1</strong><span>Owned Media Studio</span></div>
+              {stats.map((stat) => (
+                <div key={stat.label}>
+                  <strong>{stat.value}</strong>
+                  <span>{stat.label}</span>
+                </div>
+              ))}
             </div>
           </div>
           <div className="hero-image">
@@ -119,29 +81,18 @@ export default function HomePage() {
           <div className="container client-strip-inner">
             <SectionLabel>Clients We’ve Worked With</SectionLabel>
             <div>
-              <a href="https://guardian.ng/joe-komolafe/seven30-strengthens-commitment-to-quality-with-land-allocation-at-petra-ville-phase-i/" target="_blank" rel="noreferrer">
-                Seven30 Real Estate Limited
-              </a>
-              <i>•</i>
-              <a href="https://www.thisdaylive.com/index.php/2024/10/28/seven30-real-estate-limited-unveils-petra-ville-phase-i-with-momentous-land-allocation-event/" target="_blank" rel="noreferrer">
-                Petra Ville Phase I
-              </a>
-              <i>•</i>
-              <a
-                href="https://businessday.ng/bd-weekender/article/sakiyesi-invites-nigerians-to-slow-down-and-pay-attention/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Sákiyèsí
-              </a>
-              <i>•</i>
-              <span>2MoroTrip</span>
-              <i>•</i>
-              <span>AIESEC</span>
-              <i>•</i>
-              <span>Gluke</span>
-              <i>•</i>
-              <span>Higher Education with Liberty and Progress</span>
+              {clients.map((client, i) => (
+                <Fragment key={client.name}>
+                  {i > 0 && <i>•</i>}
+                  {client.link ? (
+                    <a href={client.link} target="_blank" rel="noreferrer">
+                      {client.name}
+                    </a>
+                  ) : (
+                    <span>{client.name}</span>
+                  )}
+                </Fragment>
+              ))}
             </div>
           </div>
         </section>

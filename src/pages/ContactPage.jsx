@@ -3,6 +3,7 @@ import { ArrowRight, ArrowUpRight, Check, Circle, FileText, MapPin, Minus, Plus 
 import SiteHeader from '../components/SiteHeader'
 import SiteFooter from '../components/SiteFooter'
 import SectionLabel from '../components/SectionLabel'
+import { submitForm } from '../utils/submissions'
 
 
 const BUREAU_CLOCKS = [
@@ -122,8 +123,12 @@ export default function ContactPage() {
               </div>
             ) : (
               <form
-                onSubmit={(e) => {
+                onSubmit={async (e) => {
                   e.preventDefault()
+                  const form = new FormData(e.target)
+                  const data = Object.fromEntries(form.entries())
+                  if (tags.length) data.priorityTags = tags.join(', ')
+                  await submitForm('mandate', data)
                   setSubmitted(true)
                 }}
               >

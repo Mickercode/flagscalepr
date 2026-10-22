@@ -6,6 +6,7 @@ import ContactPage from './pages/ContactPage'
 import JournalPage from './pages/JournalPage'
 import ArticlePage from './pages/ArticlePage'
 import NotFoundPage from './pages/NotFoundPage'
+import AdminPage from './pages/AdminPage'
 import { articles } from './data/articles'
 
 const SITE = 'Flagscale PR'
@@ -42,6 +43,13 @@ function resolve(path) {
       title: `Contact | ${SITE}`,
       description:
         'Start a conversation with Flagscale PR. Partners respond within 24 hours from Lagos, London, Nairobi and Accra.',
+    }
+  }
+  if (path === '/admin') {
+    return {
+      view: <AdminPage />,
+      title: `Site Dashboard | ${SITE}`,
+      description: 'Internal dashboard for managing Flagscale PR site content.',
     }
   }
   if (path === '/journal') {

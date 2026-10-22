@@ -4,6 +4,7 @@ import SiteHeader from '../components/SiteHeader'
 import SiteFooter from '../components/SiteFooter'
 import SectionLabel from '../components/SectionLabel'
 import { navigate } from '../utils/navigation'
+import { submitForm } from '../utils/submissions'
 import SmartImage from '../components/SmartImage'
 import { articles, categories, editorialThemes } from '../data/articles'
 
@@ -17,11 +18,11 @@ export default function JournalPage() {
     (a) => activeCategory === 'All Stories' || a.category === activeCategory
   )
 
-  const handleSubscribe = (e) => {
+  const handleSubscribe = async (e) => {
     e.preventDefault()
-    if (email.trim()) {
-      setSubscribed(true)
-    }
+    if (!email.trim()) return
+    await submitForm('subscribe', { email: email.trim() })
+    setSubscribed(true)
   }
 
   return (
