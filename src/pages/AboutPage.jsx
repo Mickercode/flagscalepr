@@ -36,7 +36,7 @@ export default function AboutPage() {
                     navigate('/contact')
                   }}
                 >
-                  Let's Talk <ArrowRight size={16} />
+                  Let’s Talk <ArrowRight size={16} />
                 </a>
               </div>
             </div>
@@ -268,7 +268,7 @@ export default function AboutPage() {
               <div className="ambition-quote-card">
                 <SectionLabel>Core Conviction</SectionLabel>
                 <blockquote>
-                  “We believe Africa's business stories deserve to travel further.”
+                  “We believe Africa’s business stories deserve to travel further.”
                 </blockquote>
                 <div className="quote-footer">
                   <b>FLAGSCALE PR</b>
@@ -288,7 +288,7 @@ export default function AboutPage() {
               Have a business, an idea, or an opportunity you want the right people to know about?
             </p>
             <p className="closing-sub">
-              Let's explore how strategic communication can help you move forward.
+              Let’s explore how strategic communication can help you move forward.
             </p>
             <div className="closing-btn-wrap">
               <a

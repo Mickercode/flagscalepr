@@ -176,7 +176,7 @@ export default function ArticlePage({ slug }) {
                   >
                     {copied ? (
                       <>
-                        <Check size={13} color="var(--ochre)" /> Copied Link
+                        <Check size={13} color="var(--ochre-text)" /> Copied Link
                       </>
                     ) : (
                       <>

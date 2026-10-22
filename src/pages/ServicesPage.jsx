@@ -18,7 +18,7 @@ import SmartImage from '../components/SmartImage'
 const divisions = [
   ['01', 'Media Relations', 'We build relationships with journalists and media networks to secure credible coverage for your products, services, and events.', 'Earned Visibility', Newspaper],
   ['02', 'Content Creation', 'Compelling entrepreneurial stories, social content, and owned-media narratives that help African SMEs stand out from competitors.', 'Stories with Purpose', PenLine],
-  ['03', 'Social Media Management', 'People-centred content planning and community engagement that turns attention into meaningful customer and partner relationships.', 'Audience Connection', Share2],
+  ['03', 'Social Media Management', 'People-centric content planning and community engagement that turns attention into meaningful customer and partner relationships.', 'Audience Connection', Share2],
   ['04', 'Crisis Management', 'Clear, timely communication and stakeholder guidance to protect trust, maintain a positive image, and respond to uncertainty.', 'Reputation Care', ShieldAlert],
   ['05', 'Event Management', 'Strategic events and experiences that create opportunities for coverage, connection, partnerships, and long-term contracts.', 'Experiences that Open Doors', CalendarCheck],
   ['06', 'Influencer Marketing', 'Trusted African creators and cultural voices aligned with your audience, values, and business goals.', 'Cultural Relevance', Megaphone],
@@ -78,7 +78,7 @@ export default function ServicesPage() {
                 <h2>The Eight Sovereign Divisions</h2>
               </div>
               <p>
-                Modular, highly specialized bureaus designed to deploy independently or assemble as a cohesive global communications vanguard.
+                Modular, highly specialised bureaus designed to deploy independently or assemble as a cohesive global communications vanguard.
               </p>
             </div>
             <div className="division-grid">

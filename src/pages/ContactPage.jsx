@@ -39,7 +39,7 @@ export default function ContactPage() {
   const faqs = [
     [
       'How does Flagscale PR approach initial mandate onboarding?',
-      'Every prospective client undergoes a 72-hour reputational and strategic audit before contract formalization. Once cleared, an onboarding partner and dedicated strategic team are assigned within 48 hours.',
+      'Every prospective client undergoes a 72-hour reputational and strategic audit before contract formalisation. Once cleared, an onboarding partner and dedicated strategic team are assigned within 48 hours.',
     ],
     [
       'What confidentiality and non-disclosure standards apply?',
@@ -47,7 +47,7 @@ export default function ContactPage() {
     ],
     [
       'What is the retainer framework and campaign duration structure?',
-      'Flagscale PR operates primarily on 6-month or 12-month sovereign and enterprise strategic retainers, with rapid-deployment strike teams available for specialized mandates.',
+      'Flagscale PR operates primarily on 6-month or 12-month sovereign and enterprise strategic retainers, with rapid-deployment strike teams available for specialised mandates.',
     ],
   ]
 
@@ -142,7 +142,7 @@ export default function ContactPage() {
                     />
                   </label>
                   <label htmlFor="c-org">
-                    Corporate / Institutional Organization <b aria-hidden="true">*</b>
+                    Corporate / Institutional Organisation <b aria-hidden="true">*</b>
                     <input
                       id="c-org"
                       name="organization"

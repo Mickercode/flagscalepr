@@ -106,7 +106,7 @@ export default function HomePage() {
               <i>•</i>
               <span>2MoroTrip</span>
               <i>•</i>
-              <span>AISEC</span>
+              <span>AIESEC</span>
               <i>•</i>
               <span>Gluke</span>
               <i>•</i>
@@ -247,7 +247,7 @@ export default function HomePage() {
                         ? 'Moving past vanity metrics toward institutional durability and real regulatory authority in expanding consumer economies.'
                         : i === 1
                         ? 'Unfiltered dialogues with unicorn founders, sovereign fund managers, and cultural curators reshaping continental infrastructure.'
-                        : 'How decentralized media houses and creator economies are challenging traditional legacy public relations across West Africa.'}
+                        : 'How decentralised media houses and creator economies are challenging traditional legacy public relations across West Africa.'}
                     </p>
                   </div>
                   <LinkArrow href="/journal">{action}</LinkArrow>

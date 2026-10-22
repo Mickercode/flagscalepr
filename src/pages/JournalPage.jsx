@@ -39,7 +39,7 @@ export default function JournalPage() {
           <div className="journal-hero-content">
             <h1>Ideas worth talking about.</h1>
             <p className="lead">
-              Perspectives on business, entrepreneurship, public relations, leadership, and the people shaping Africa's commercial future.
+              Perspectives on business, entrepreneurship, public relations, leadership, and the people shaping Africa’s commercial future.
             </p>
             <p className="journal-hero-sub">
               We explore the stories, decisions, and ideas influencing how African businesses grow, communicate, and connect with the world.
@@ -242,7 +242,7 @@ export default function JournalPage() {
             <div className="subscription-form-wrap">
               {subscribed ? (
                 <div className="subscribed-success" role="status" aria-live="polite">
-                  <Check size={20} color="var(--ochre)" />
+                  <Check size={20} color="var(--ochre-text)" />
                   <div>
                     <strong>You are subscribed.</strong>
                     <p>Thank you for joining our circulation ledger. You will receive new stories as they publish.</p>

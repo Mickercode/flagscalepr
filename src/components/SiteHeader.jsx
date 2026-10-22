@@ -69,7 +69,7 @@ export default function SiteHeader({ active = '' }) {
             </a>
           ))}
           <a className="nav-cta" href="/contact" onClick={(e) => handleNav(e, '/contact')}>
-            Let's Talk <ArrowRight size={15} />
+            Let’s Talk <ArrowRight size={15} />
           </a>
         </nav>
         <button

@@ -55,7 +55,7 @@ export const articles = [
       {
         heading: 'Understanding the Business Before the Message',
         content:
-          'Effective public relations must begin with deep comprehension of the underlying business model. What are its genuine advantages? Who are the core stakeholders whose opinions determine revenue and license to operate? When communications strategy is derived from genuine commercial objectives rather than cosmetic promotional vanity, every interview, op-ed, and media placement serves a measurable business outcome.',
+          'Effective public relations must begin with deep comprehension of the underlying business model. What are its genuine advantages? Who are the core stakeholders whose opinions determine revenue and licence to operate? When communications strategy is derived from genuine commercial objectives rather than cosmetic promotional vanity, every interview, op-ed, and media placement serves a measurable business outcome.',
       },
       {
         heading: 'Building Enduring Relationships That Transcend Cycles',
@@ -112,7 +112,7 @@ export const articles = [
       'https://lh3.googleusercontent.com/aida-public/AB6AXuD7Vpf60uaIRE9up3Wa3BXBmnOdnutVca1IGt8mD4yQyj6hF8QGcT1E2IGBJMfgQNAOQrLiSPo_OnUQj_AcyINNcL-hc-wd8q0DMNrvIUt5ukd7MSNqZu9yIREz13uyPyF1skFiE3PBwfVYp91XF1dtWdNLkDWyf1C5h3PerTYUr5p3TDQqQtctGpj_GlP3AGUKWbHpo5pF8Y2ZZSnBgE_my8gV1xNHGL5wWylYpbk9WKvAwWdXrdeI',
     caption: 'Executive leadership in African corporate environments',
     storyIntro:
-      'In an era where executive actions are scrutinized across public channels in real-time, founder and CEO communications can no longer be treated as a casual afterthought or an exercise in self-congratulation.',
+      'In an era where executive actions are scrutinised across public channels in real-time, founder and CEO communications can no longer be treated as a casual afterthought or an exercise in self-congratulation.',
     sections: [
       {
         heading: 'From Social Vanity to Commercial Stature',
@@ -179,7 +179,7 @@ export const articles = [
       {
         heading: 'Beyond Literal Translation',
         content:
-          'Directly translating an English press release into French without adjusting tone or context frequently produces formal, disconnected copy. Francophone newsrooms prioritize institutional rigor, balanced debate, and structured economic rationale.',
+          'Directly translating an English press release into French without adjusting tone or context frequently produces formal, disconnected copy. Francophone newsrooms prioritise institutional rigor, balanced debate, and structured economic rationale.',
       },
       {
         heading: 'Building Relational Networks in Both Corridors',
@@ -205,7 +205,7 @@ export const articles = [
       'https://lh3.googleusercontent.com/aida-public/AB6AXuCMif-Ae50J_848lmI2A8xwIyR3oQ9zTwjO5A31QfB6qW4Yf3PKiGkF78kS4kh0YlRTDjN3ii3hvDEgMQh6n6yeA8sfUZzul_dcoBKndH98WYNnP8lHT8KvQOJzPmjT8s1Xova0gd_dArbEDguMlZnd8WKibM8UAXrtcl7evWaWofSwfgxJgAk2mkp4S-YRDl8F20c1nKW7hPuYI3pR3IsDX54rMoHde-4FwOqEbTyfmugW8xheTZ1u',
     caption: 'Media newsrooms and digital storytelling in urban Africa',
     storyIntro:
-      'The traditional newsroom model is undergoing profound transformations across Africa. Digital platforms, niche newsletters, and investigative podcasts have decentralized how stories are broken and absorbed.',
+      'The traditional newsroom model is undergoing profound transformations across Africa. Digital platforms, niche newsletters, and investigative podcasts have decentralised how stories are broken and absorbed.',
     sections: [
       {
         heading: 'The Death of the Generic Press Blast',
@@ -215,7 +215,7 @@ export const articles = [
       {
         heading: 'Co-creating Narrative Value with New Media',
         content:
-          'Forward-looking African businesses are engaging with specialized business journalists and thoughtful creators to explain complex industries—such as renewable energy, logistics, and fintech—through nuanced, long-form storytelling.',
+          'Forward-looking African businesses are engaging with specialised business journalists and thoughtful creators to explain complex industries—such as renewable energy, logistics, and fintech—through nuanced, long-form storytelling.',
       },
     ],
     takeaway:
