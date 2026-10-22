@@ -4,6 +4,7 @@ import SiteFooter from '../components/SiteFooter'
 import SectionLabel from '../components/SectionLabel'
 import LinkArrow from '../components/LinkArrow'
 import SmartImage from '../components/SmartImage'
+import sakiyesiLaunch from '../assets/sakiyesi-launch.jpg'
 import { navigate } from '../utils/navigation'
 
 const work = [
@@ -13,6 +14,8 @@ const work = [
     services: 'Media Relations • Event Communications',
     copy: 'Strengthening trust around Petra Ville Phase I through a landmark land allocation event and quality-led property storytelling.',
     image: 'https://cdn.guardian.ng/wp-content/uploads/2024/10/Se.jpg',
+    width: 1280,
+    height: 800,
     link: 'https://guardian.ng/joe-komolafe/seven30-strengthens-commitment-to-quality-with-land-allocation-at-petra-ville-phase-i/',
   },
   {
@@ -21,7 +24,19 @@ const work = [
     services: 'Launch PR • Stakeholder Communications',
     copy: 'Introducing Seven30 Real Estate Limited’s Petra Ville Phase I through a momentous land allocation event, helping prospective owners see the value and promise of the development.',
     image: 'https://global.ariseplay.com/amg/www.thisdaylive.com/uploads/Screenshot_20241027-214310.jpg',
+    width: 1080,
+    height: 755,
     link: 'https://www.thisdaylive.com/index.php/2024/10/28/seven30-real-estate-limited-unveils-petra-ville-phase-i-with-momentous-land-allocation-event/',
+  },
+  {
+    name: 'SÁKIYÈSÍ',
+    tag: 'Publishing & Culture • Ile-Ife',
+    services: 'Media Relations • Launch Communications',
+    copy: 'Carrying Aderonke Lawal’s Yoruba-inspired colouring book beyond its launch at Obafemi Awolowo University and into the national business press, as a story about attention itself.',
+    image: sakiyesiLaunch,
+    width: 1079,
+    height: 632,
+    link: 'https://businessday.ng/bd-weekender/article/sakiyesi-invites-nigerians-to-slow-down-and-pay-attention/',
   },
 ]
 
@@ -35,6 +50,14 @@ const capabilities = [
   'Brand Building',
   'Corporate Communications',
 ]
+
+// The work grid runs on a 12-column track: cards alternate 7/5 then 5/7, so an
+// even count always fills its rows. A trailing odd card spans the full width
+// instead of orphaning next to seven empty columns.
+function workCardClass(index, total) {
+  const isTrailingOdd = index === total - 1 && total % 2 === 1 && total > 1
+  return isTrailingOdd ? 'work-card work-wide' : `work-card work-${index}`
+}
 
 export default function HomePage() {
   return (
@@ -63,7 +86,7 @@ export default function HomePage() {
             </div>
             <div className="stats">
               <div><strong>8</strong><span>Core Services</span></div>
-              <div><strong>2</strong><span>Verified Placements</span></div>
+              <div><strong>3</strong><span>Verified Placements</span></div>
               <div><strong>1</strong><span>Owned Media Studio</span></div>
             </div>
           </div>
@@ -104,6 +127,14 @@ export default function HomePage() {
                 Petra Ville Phase I
               </a>
               <i>•</i>
+              <a
+                href="https://businessday.ng/bd-weekender/article/sakiyesi-invites-nigerians-to-slow-down-and-pay-attention/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Sákiyèsí
+              </a>
+              <i>•</i>
               <span>2MoroTrip</span>
               <i>•</i>
               <span>AIESEC</span>
@@ -135,9 +166,14 @@ export default function HomePage() {
           </div>
           <div className="work-grid">
             {work.map((item, i) => (
-              <article className={`work-card work-${i}`} key={item.name}>
+              <article className={workCardClass(i, work.length)} key={item.name}>
                 <div className="work-photo">
-                  <SmartImage src={item.image} alt={item.name} width={1200} height={900} />
+                  <SmartImage
+                    src={item.image}
+                    alt={item.name}
+                    width={item.width}
+                    height={item.height}
+                  />
                   <span>{item.tag}</span>
                 </div>
                 <div className="work-body">
